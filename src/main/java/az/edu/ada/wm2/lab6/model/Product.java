@@ -1,9 +1,12 @@
 package az.edu.ada.wm2.lab6.model;
 
+import jakarta.persistence.Entity;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Entity
 public class Product {
     private UUID id;
     private String productName;
