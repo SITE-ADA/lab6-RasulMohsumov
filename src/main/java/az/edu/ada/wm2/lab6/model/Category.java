@@ -3,6 +3,7 @@ package az.edu.ada.wm2.lab6.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,5 +23,5 @@ public class Category {
   private String name;
 
   @ManyToMany(mappedBy = "categories")
-  private List<Product> products;
+  private List<Product> products = new ArrayList<>();
 }
