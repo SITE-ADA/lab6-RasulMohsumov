@@ -13,4 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findAll();
     void deleteById(UUID id);
     boolean existsById(UUID id);
+    List<Product> findByExpirationDateBefore(LocalDate date);
+    List<Product> findByPriceBetween(BigDecimal start, BigDecimal end);
 }
