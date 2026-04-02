@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,6 +15,8 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+@Setter
+@Getter
 public class Product {
 
     @Id
