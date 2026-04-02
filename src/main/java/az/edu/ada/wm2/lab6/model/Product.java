@@ -21,6 +21,7 @@ import java.util.UUID;
 @Setter
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Product {
 
@@ -40,8 +41,6 @@ public class Product {
     private List<Category> categories;
 
     // Constructors
-    public Product() {
-    }
 
     public Product(String productName, BigDecimal price, LocalDate expirationDate) {
         this.id = UUID.randomUUID();
