@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
         if (dto.getCategoryIds() != null) {
             List<Category> categories = categoryRepository.findAllById(dto.getCategoryIds());
-            product.setCategories(new HashSet<>(categories));
+            product.setCategories(categories);
         }
 
         Product saved = productRepository.save(product);
@@ -62,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
 
         if (dto.getCategoryIds() != null) {
             List<Category> categories = categoryRepository.findAllById(dto.getCategoryIds());
-            existing.setCategories(new HashSet<>(categories));
+            existing.setCategories(categories);
         }
 
         Product updated = productRepository.save(existing);
