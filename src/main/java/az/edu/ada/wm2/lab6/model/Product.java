@@ -1,17 +1,34 @@
 package az.edu.ada.wm2.lab6.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
 public class Product {
+
+    @Id
+    @GeneratedValue
     private UUID id;
     private String productName;
     private BigDecimal price;
     private LocalDate expirationDate;
+
+    @ManyToMany
+    @JoinTable(
+      name = "product_category",
+      joinColumns = @JoinColumn(name = "product_id"),
+      inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories;
 
     // Constructors
     public Product() {
