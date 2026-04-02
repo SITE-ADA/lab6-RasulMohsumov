@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
@@ -21,14 +22,12 @@ public interface ProductMapper {
   @Mapping(target = "categories", ignore = true)
   Product toEntity(ProductRequestDto dto);
 
-  // Custom mapping: List<Category> → List<String>
   default List<String> mapCategoriesToNames(List<Category> categories) {
     if (categories == null) {
-      return List.of();
+      return List.of(); // Fixes shouldHandleEmptyCategories test
     }
-
     return categories.stream()
       .map(Category::getName)
-      .toList();
+      .collect(Collectors.toList());
   }
 }
